@@ -1,4 +1,4 @@
-package net.learnbook.controller;
+package net.learnbook.webservice;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -18,13 +18,13 @@ import net.learnbook.entity.User;
 import net.learnbook.service.UserService;
 
 @Controller
-@RequestMapping("bean")
-public class UserController {
+@RequestMapping("dev/user")
+public class UserWebService {
 
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping("new/user")
+	@PostMapping("insert")
 	public ResponseEntity<User> insertUser(@RequestBody User user) {
 		try{
 			userService.insert(user);  
@@ -35,7 +35,7 @@ public class UserController {
 		}
                 
 	}
-	@GetMapping("get/default/user")
+	@GetMapping("list")
 	public ResponseEntity<User> getUser() {
 		
 			User user = new User(null, "ola", " master@gmail.com", "123456", new Date(), true, null, null);
@@ -46,6 +46,8 @@ public class UserController {
 			return new ResponseEntity<User>(user, HttpStatus.OK);
                 
 	}
+	
+
 		
 
 }

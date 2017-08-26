@@ -43,6 +43,8 @@ public class Address {
 	private String sNeiAdd;
 
 	@Column
+	@NotNull(message = "O campo complemento é obrigatório")
+	@NotEmpty(message = "O campo complemento é obrigatório")
 	private String sComAdd;
 
 	@Column(unique = true)
@@ -53,6 +55,10 @@ public class Address {
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "address_user_fk")
 	private User user;
+	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "address_beneficiary_fk")
+	private Beneficiary beneficiary;
 
 	public Address() {
 		super();

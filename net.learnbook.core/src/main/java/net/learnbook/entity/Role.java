@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "role")
@@ -15,7 +16,9 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column
 	private Integer iCodRol;
+	
 	@Column
+	@NotNull(message="O campo nome não pode estar vazio.")
 	private String sNamRol;
 
 	public Role() {

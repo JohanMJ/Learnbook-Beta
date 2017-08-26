@@ -2,17 +2,47 @@ package net.learnbook.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="acitvity")
 public class Activity {
 
+	@Id
+	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer iCodAct;
+	
+	@Column(nullable = false)
+	@NotNull(message="O campo nome não pode ficar vazio")
 	private String sNamAct;
+	
+	@Column(nullable = false)
+	@NotNull(message="O campo descrição não pode ficar vazio")
 	private String sDesAct;
+	
+	@Column(nullable = false)
+	@NotNull(message="O campo data não pode ficar vazio")
 	private Date dDatAct;
+	
+	@Column(nullable = false)
+	@NotNull(message="O campo data de expiração não pode ficar vazio")
 	private Date dExpTime;
+	
+	@ManyToOne
+	@JoinColumn(name="activity_course_fk")
+	private Course course;
 
 	public Activity() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Activity(Integer iCodAct, String sNamAct, String sDesAct, Date dDatAct, Date dExpTime) {

@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.Valid;
@@ -56,14 +57,23 @@ public class User {
 	@OneToOne(mappedBy = "user", fetch = FetchType.EAGER)
 	@Valid
 	private Address address;
+	
+	@OneToMany(mappedBy="user", fetch = FetchType.EAGER)
+	private Set<Certification> certification;
+	
+	@OneToMany(mappedBy="user", fetch = FetchType.EAGER)
+	private Set<Slip> slip;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodRol"))
 	private Set<Role> roles;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_course", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodCou"))
+	private Set<Course> courses;
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public User(Integer iCodUser, String sNamUser, String sLogUser, String sPasUser, Date dBirUser, boolean bStaUser,
