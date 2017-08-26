@@ -1,0 +1,8 @@
+net\learnbook\repository\UserRepository.class
+MyApplication.class
+net\learnbook\controller\UserController.class
+net\learnbook\entity\User.class
+net\learnbook\repository\Repository.class
+net\learnbook\service\UserServiceImp.class
+net\learnbook\repository\AbstractRepository.class
+net\learnbook\service\UserService.class
