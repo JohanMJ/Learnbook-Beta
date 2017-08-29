@@ -1,0 +1,6 @@
+net\learnbook\security\SecurityConfiguration.class
+net\learnbook\webservice\UserWebService.class
+net\learnbook\MyApplication.class
+net\learnbook\security\WebMvcConfig.class
+net\learnbook\webservice\CourseWebService.class
+net\learnbook\webservice\ActivityWebService.class
