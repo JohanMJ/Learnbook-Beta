@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.Arrays;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -45,7 +46,27 @@ public class UserServiceImp implements UserService {
 		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
 		userRepository.save(user);
 
+	}
 
+	@Override
+	public List<User> listAll() {
+		List<User> users = userRepository.list("User");
+
+		if (users == null)
+			try {
+				throw new Exception("Doesn`t have recipes to list");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		return users;
+	}
+
+	@Override
+	public User findById(Integer iCodUser) {
+
+		return userRepository.findById(iCodUser);
 	}
 
 	@Override
