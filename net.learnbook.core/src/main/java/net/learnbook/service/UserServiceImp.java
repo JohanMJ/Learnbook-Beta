@@ -8,6 +8,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +21,7 @@ import net.learnbook.repository.UserRepository;
 
 @Service
 @Primary
-public class UserServiceImp implements UserService {
+public class UserServiceImp implements UserService, UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
@@ -31,6 +34,7 @@ public class UserServiceImp implements UserService {
 		BCryptPasswordEncoder encoder;
 		String cryptedPassword;
 
+		System.out.println(user);
 		encoder = new BCryptPasswordEncoder();
 		cryptedPassword = encoder.encode(user.getsPasUser());
 
@@ -42,8 +46,8 @@ public class UserServiceImp implements UserService {
 			user.setdBirUser(new Date(now));
 		}
 
-		Role userRole = roleRepository.findById(0);
-		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+/*		Role userRole = roleRepository.findById(0);
+		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));*/
 		userRepository.save(user);
 
 	}
@@ -68,10 +72,29 @@ public class UserServiceImp implements UserService {
 
 		return userRepository.findById(iCodUser);
 	}
+	
 
 	@Override
 	public UserRepository getRepository() {
 		return userRepository;
 	}
+
+	@Override
+	public UserDetails loadUserByUsername(String arg0) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+/*	@Override
+	public UserDetails loadUserByUsername(String sLogUser) throws UsernameNotFoundException {
+	User user;
+		
+		user = userRepository.loadUserByUsername(sLogUser);
+		
+		if( user == null)
+			throw new UsernameNotFoundException("Usuário não encontrado.");
+	    
+		return user;
+	}*/
 
 }

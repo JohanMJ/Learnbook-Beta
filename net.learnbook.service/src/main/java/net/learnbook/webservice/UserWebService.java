@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,9 +29,10 @@ public class UserWebService {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping("insert")
+	@PostMapping("/insert")
 	public ResponseEntity<User> insertUser(@RequestBody User user) {
 		try{
+			System.out.println(user);
 			userService.insert(user);  
             return new ResponseEntity<User>(user, HttpStatus.OK);
 		}catch(Exception e){
@@ -59,7 +61,7 @@ public class UserWebService {
 	            
 	}*/
 	
-	@GetMapping(value="listAll")
+	@GetMapping(value="/listAll")
 	public List<User> getAllUser() {
 		List<User> users = new ArrayList<User>();
 		users = userService.listAll();
@@ -73,7 +75,24 @@ public class UserWebService {
 		return userService.findById(iCodUser);
 	            
 	}
-		
+	
+	//Test - Authentication
+	
+ 
+/*    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public UserWebService(UserService userService,
+                          BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userService = userService;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
+    @PostMapping("/sign-up")
+    public void signUp(@RequestBody User user) {
+        user.setsPasUser(bCryptPasswordEncoder.encode(user.getPassword()));
+        userService.insert(user);
+    }
+		*/
 	
 
 		
