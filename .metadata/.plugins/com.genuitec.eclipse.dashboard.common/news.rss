@@ -12,12 +12,95 @@
 	<atom:link href="https://www.genuitec.com/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.genuitec.com</link>
 	<description>The Cloud Control Company</description>
-	<lastBuildDate>Sat, 16 Sep 2017 05:39:56 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 05 Oct 2017 18:38:07 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.6.1</generator>
 	<item>
+		<title>Code Sharing Evolving</title>
+		<link>https://www.genuitec.com/code-sharing-evolving/</link>
+		<pubDate>Tue, 03 Oct 2017 17:59:43 +0000</pubDate>
+		<dc:creator><![CDATA[Wanda Muriy]]></dc:creator>
+				<category><![CDATA[Bright Ideas]]></category>
+		<category><![CDATA[Eclipse]]></category>
+		<category><![CDATA[Genuitec]]></category>
+		<category><![CDATA[MyEclipse]]></category>
+		<category><![CDATA[Programming Tips]]></category>
+		<category><![CDATA[Webclipse]]></category>
+		<category><![CDATA[code review]]></category>
+		<category><![CDATA[code sharing]]></category>
+		<category><![CDATA[collaborative programming]]></category>
+		<category><![CDATA[share code]]></category>
+
+		<guid isPermaLink="false">https://www.genuitec.com/?p=538504</guid>
+		<description><![CDATA[<p>Is there a little code snippet that is just driving you crazy? Or would you like a detailed collaborative session even before you dive in? There are different ways of sharing your code to get another developer to get involved. Read on for more!Simply Share with SlackSo how can you share your code? One easy [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://www.genuitec.com/code-sharing-evolving/">Code Sharing Evolving</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
+]]></description>
+		</item>
+		<item>
+		<title>Hackathons Going Virtual with CodeTogether</title>
+		<link>https://www.genuitec.com/hackathons-going-virtual-codetogether/</link>
+		<pubDate>Tue, 26 Sep 2017 15:52:05 +0000</pubDate>
+		<dc:creator><![CDATA[Wanda Muriy]]></dc:creator>
+				<category><![CDATA[Bright Ideas]]></category>
+		<category><![CDATA[Eclipse]]></category>
+		<category><![CDATA[Genuitec]]></category>
+		<category><![CDATA[MyEclipse]]></category>
+		<category><![CDATA[Programming Tips]]></category>
+		<category><![CDATA[Webclipse]]></category>
+		<category><![CDATA[coder parties]]></category>
+		<category><![CDATA[hackathons]]></category>
+		<category><![CDATA[pair programming]]></category>
+		<category><![CDATA[remote pair programming]]></category>
+		<category><![CDATA[virtual coder parties]]></category>
+		<category><![CDATA[virtual hackathons]]></category>
+
+		<guid isPermaLink="false">https://www.genuitec.com/?p=537687</guid>
+		<description><![CDATA[<p>In the coding world, collaboration has been taking place in the form of coding parties, retreats or hackathons, and, more recently, through new technologies that allow for virtual exchanges. Many might argue long and hard, giving preference to one over the other, but what’s the deal behind each one? Partying &#8216;developer-style&#8217;The word “party” normally conjures up [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://www.genuitec.com/hackathons-going-virtual-codetogether/">Hackathons Going Virtual with CodeTogether</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
+]]></description>
+		</item>
+		<item>
+		<title>TypeScript 2.4 &#8212; Even More Reasons to Love it!</title>
+		<link>https://www.genuitec.com/typescript-2-4-even-more-reasons-to-love-it/</link>
+		<pubDate>Fri, 22 Sep 2017 16:55:59 +0000</pubDate>
+		<dc:creator><![CDATA[Wanda Muriy]]></dc:creator>
+				<category><![CDATA[Eclipse]]></category>
+		<category><![CDATA[Genuitec]]></category>
+		<category><![CDATA[MyEclipse]]></category>
+		<category><![CDATA[Programming Tips]]></category>
+		<category><![CDATA[Webclipse]]></category>
+		<category><![CDATA[typescript]]></category>
+		<category><![CDATA[typescript 2.4]]></category>
+		<category><![CDATA[typescript features]]></category>
+		<category><![CDATA[using typescript]]></category>
+
+		<guid isPermaLink="false">https://www.genuitec.com/?p=534301</guid>
+		<description><![CDATA[<p>Perhaps you are already enjoying all the amazing features TypeScript (TS) adds to JavaScript: you might already be in love with its interfaces, abstract classes, and algebraic data types, among many others. TS 2.4 brings more good news. This version of TS comes loaded with improvements, ranging from dynamic import expressions to weak type detection.ModulesNeed [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://www.genuitec.com/typescript-2-4-even-more-reasons-to-love-it/">TypeScript 2.4 &#8212; Even More Reasons to Love it!</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
+]]></description>
+		</item>
+		<item>
+		<title>2017 CI 8 Keeps Adding to the Treasure Chest</title>
+		<link>https://www.genuitec.com/2017-ci-8-keeps-adding-to-the-treasure-chest/</link>
+		<pubDate>Tue, 19 Sep 2017 13:54:40 +0000</pubDate>
+		<dc:creator><![CDATA[Wanda Muriy]]></dc:creator>
+				<category><![CDATA[Eclipse]]></category>
+		<category><![CDATA[Genuitec]]></category>
+		<category><![CDATA[MyEclipse]]></category>
+		<category><![CDATA[MyEclipse Top News]]></category>
+		<category><![CDATA[Programming Tips]]></category>
+		<category><![CDATA[Webclipse]]></category>
+		<category><![CDATA[2017 CI 8 release]]></category>
+		<category><![CDATA[software updates]]></category>
+
+		<guid isPermaLink="false">https://www.genuitec.com/?p=536741</guid>
+		<description><![CDATA[<p>Good news &#8211; our new release is out the door! For Angular IDE and Webclipse, we give you access to a brand new Eclipse experience with our DevStyle Preview. MyEclipse includes some key bug fixes in the Spring / Maven project area, and a new version of the Eclipse Buildship toolset, for improved Gradle support. [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://www.genuitec.com/2017-ci-8-keeps-adding-to-the-treasure-chest/">2017 CI 8 Keeps Adding to the Treasure Chest</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
+]]></description>
+		</item>
+		<item>
 		<title>Equifax Data Breach Advisory</title>
 		<link>https://www.genuitec.com/equifax-data-breach-advisory/</link>
 		<pubDate>Fri, 15 Sep 2017 19:16:46 +0000</pubDate>
@@ -211,83 +294,14 @@
 <p>The post <a rel="nofollow" href="https://www.genuitec.com/webscripting-made-easy-jsjet/">Webscripting Made Easy with JSjet.</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
 ]]></description>
 		</item>
-		<item>
-		<title>Faster Coding is a Reality &#8212; Emmet is at Your Service.</title>
-		<link>https://www.genuitec.com/faster-coding-reality-emmet-service/</link>
-		<pubDate>Thu, 27 Jul 2017 14:28:49 +0000</pubDate>
-		<dc:creator><![CDATA[Wanda Muriy]]></dc:creator>
-				<category><![CDATA[Eclipse]]></category>
-		<category><![CDATA[Genuitec]]></category>
-		<category><![CDATA[MyEclipse]]></category>
-		<category><![CDATA[Programming Tips]]></category>
-		<category><![CDATA[Webclipse]]></category>
-		<category><![CDATA[code expansion]]></category>
-		<category><![CDATA[Emmet]]></category>
-		<category><![CDATA[webclipse]]></category>
-
-		<guid isPermaLink="false">https://www.genuitec.com/?p=531771</guid>
-		<description><![CDATA[<p>Being able to see what your app will look like without having to redeploy first is a great thing, thanks to our CodeLive. Want another reason for using Webclipse, our Eclipse plug-in? There are plenty more, actually, but let’s talk about Emmet here.Ready for much higher speed when coding and editing with (X)HTML, CSS, XML, [&#8230;]</p>
-<p>The post <a rel="nofollow" href="https://www.genuitec.com/faster-coding-reality-emmet-service/">Faster Coding is a Reality &#8212; Emmet is at Your Service.</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
-]]></description>
-		</item>
-		<item>
-		<title>Live Preview for a Java EE project in MyEclipse</title>
-		<link>https://www.genuitec.com/live-preview-for-a-javaee-project-in-myeclipse/</link>
-		<pubDate>Mon, 24 Jul 2017 15:11:10 +0000</pubDate>
-		<dc:creator><![CDATA[Wanda Muriy]]></dc:creator>
-				<category><![CDATA[Eclipse]]></category>
-		<category><![CDATA[Genuitec]]></category>
-		<category><![CDATA[MyEclipse]]></category>
-		<category><![CDATA[Programming Tips]]></category>
-		<category><![CDATA[codelive]]></category>
-		<category><![CDATA[live preview]]></category>
-		<category><![CDATA[previewing code]]></category>
-
-		<guid isPermaLink="false">https://www.genuitec.com/?p=530524</guid>
-		<description><![CDATA[<p>Change, deploy, wait… don’t like it… start over!! This doesn’t have to be your developer’s life. With Live Preview of CodeLive you can know what’s going on immediately, as you code. It allows you to jump to source code from the browser, inspect it, instantly view changes and receive a preview on multiple browsers and [&#8230;]</p>
-<p>The post <a rel="nofollow" href="https://www.genuitec.com/live-preview-for-a-javaee-project-in-myeclipse/">Live Preview for a Java EE project in MyEclipse</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
-]]></description>
-		</item>
-		<item>
-		<title>Beware of Software Scams</title>
-		<link>https://www.genuitec.com/beware-software-scams/</link>
-		<pubDate>Wed, 19 Jul 2017 15:28:21 +0000</pubDate>
-		<dc:creator><![CDATA[Maher Masri]]></dc:creator>
-				<category><![CDATA[Genuitec]]></category>
-		<category><![CDATA[fraud]]></category>
-		<category><![CDATA[internet fraud]]></category>
-		<category><![CDATA[software fraud]]></category>
-
-		<guid isPermaLink="false">https://www.genuitec.com/?p=530839</guid>
-		<description><![CDATA[<p>Even though imitation might be the best form of flattery, we are Genuitec, LLC, not Genuitec, Inc. Someone is using our name and old logo to run a number of scams, including real estate transactions and software sales, with the clear intent to hide behind Genuitec’s good name. We are, however, already taking action to [&#8230;]</p>
-<p>The post <a rel="nofollow" href="https://www.genuitec.com/beware-software-scams/">Beware of Software Scams</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
-]]></description>
-		</item>
-		<item>
-		<title>Angular IDE vs WebStorm for Angular Coding.</title>
-		<link>https://www.genuitec.com/angular-ide-vs-webstorm-for-angular-coding/</link>
-		<pubDate>Mon, 17 Jul 2017 14:31:33 +0000</pubDate>
-		<dc:creator><![CDATA[Bob at Genuitec]]></dc:creator>
-				<category><![CDATA[Eclipse]]></category>
-		<category><![CDATA[Genuitec]]></category>
-		<category><![CDATA[MyEclipse]]></category>
-		<category><![CDATA[Programming Tips]]></category>
-		<category><![CDATA[Angular]]></category>
-		<category><![CDATA[WebStorm]]></category>
-
-		<guid isPermaLink="false">https://www.genuitec.com/?p=527638</guid>
-		<description><![CDATA[<p>As we know, our favorite IDE can become an unparalleled ally when it comes to undertaking an agile workflow entailing TypeScript compilation at runtime, static type checking and introspection, and code completion and visual assistance for debugging and building our app. In this article, we will compare WebStorm vs Angular IDE for Angular coding. So [&#8230;]</p>
-<p>The post <a rel="nofollow" href="https://www.genuitec.com/angular-ide-vs-webstorm-for-angular-coding/">Angular IDE vs WebStorm for Angular Coding.</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
-]]></description>
-		</item>
 	</channel>
 </rss>
 
 <!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
 
-Object Caching 9280/9402 objects using disk
+Object Caching 9349/9672 objects using disk
 Page Caching using disk: enhanced (Requested URI is rejected)
 Content Delivery Network via resources.cloud.genuitec.com
 Database Caching using disk
 
- Served from: www.genuitec.com @ 2017-09-17 10:39:04 by W3 Total Cache -->
+ Served from: www.genuitec.com @ 2017-10-05 17:29:20 by W3 Total Cache -->
