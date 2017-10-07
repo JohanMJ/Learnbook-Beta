@@ -9,12 +9,7 @@ public class UserRepository extends AbstractRepository<User>{
 
 	public UserRepository() {
 		super(User.class);
-<<<<<<< HEAD
 	}	
-=======
-	}
-	
-	
->>>>>>> parent of 71eec62... Update All
+
 
 }
