@@ -1,7 +1,5 @@
 package net.learnbook.repository;
 
-import javax.persistence.NoResultException;
-
 import org.springframework.stereotype.Repository;
 
 import net.learnbook.entity.User;
@@ -11,6 +9,12 @@ public class UserRepository extends AbstractRepository<User>{
 
 	public UserRepository() {
 		super(User.class);
+<<<<<<< HEAD
 	}	
+=======
+	}
+	
+	
+>>>>>>> parent of 71eec62... Update All
 
 }
