@@ -1,27 +1,28 @@
 package net.learnbook.security;
 
+import java.util.Arrays;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-import org.springframework.context.annotation.Configuration;
-=======
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
->>>>>>> parent of 71eec62... Update All
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-<<<<<<< HEAD
-=======
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -34,11 +35,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Value("${spring.queries.roles-query}")
 	private String rolesQuery;
 
-	@Override
+/*	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.jdbcAuthentication().usersByUsernameQuery(usersQuery).authoritiesByUsernameQuery(rolesQuery)
 				.dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
-	}
+	}*/
 
 	/*
 	 * @Override protected void configure(HttpSecurity http) throws Exception {
@@ -55,10 +56,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	 * .logoutSuccessUrl("/").and().exceptionHandling()
 	 * .accessDeniedPage("/access-denied"); }
 	 */
->>>>>>> parent of 71eec62... Update All
+
 
 	//CSRF Referente a token.
-	@Override
+/*	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.authorizeRequests()
@@ -71,12 +72,45 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+	}*/
+	
+	@Override
+	protected void configure(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity.csrf().disable().authorizeRequests()
+			.antMatchers("/dev/user/insert").permitAll()
+			.antMatchers("/dev/user/listAll").permitAll()
+			.antMatchers(HttpMethod.POST, "/login").permitAll()
+			.anyRequest().authenticated()
+			.and()
+		
+		// filtra requisições de login
+			.addFilterBefore(new JWTLoginFilter("/login", authenticationManager()),
+	                UsernamePasswordAuthenticationFilter.class)
+			
+			// filtra outras requisições para verificar a presença do JWT no header
+			.addFilterBefore(new JWTAuthenticationFilter(),
+	                UsernamePasswordAuthenticationFilter.class);
+		
+		
 	}
-<<<<<<< HEAD
 	
-	//Test - Authentication
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		// cria uma conta default
+/*		 auth
+         .jdbcAuthentication()
+             .dataSource(datasource)
+             .usersByUsernameQuery("SELECT sLogUser, sPasUser from User where sLogUser=? ")
+             .authoritiesByUsernameQuery("SELECT sLogUser, role from ROLE WHERE sLogUser=? ");*/
+		auth.jdbcAuthentication().usersByUsernameQuery(usersQuery).authoritiesByUsernameQuery(rolesQuery)
+		.dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
+		
+		/*auth.inMemoryAuthentication()
+		.withUser("admin@gmail.com")
+		.password("$10$qm17OjcrV2/hRmskASu0CuxwJsUVsq5vOG.qkRzt7foe.8niuzmhK")
+		.roles("ADMIN");*/
+	}
 	
-=======
 
->>>>>>> parent of 71eec62... Update All
+
 }
