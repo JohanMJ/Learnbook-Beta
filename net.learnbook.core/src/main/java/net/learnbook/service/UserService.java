@@ -15,5 +15,7 @@ public interface UserService {
 	
 	public User findById(Integer iCodUser);
 	
+	public User findByLogin(String sLogin);
+	
 	public UserRepository getRepository();
 }

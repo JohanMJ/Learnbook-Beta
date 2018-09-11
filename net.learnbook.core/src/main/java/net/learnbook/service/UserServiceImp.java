@@ -74,4 +74,11 @@ public class UserServiceImp implements UserService {
 		return userRepository;
 	}
 
+	@Override
+	public User findByLogin(String sLogin) {
+		// TODO Auto-generated method stub
+		//System.out.println(sLogin);
+		return userRepository.findByLogin("User", sLogin);
+	}
+
 }

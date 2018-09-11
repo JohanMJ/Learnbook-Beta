@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: net.learnbook.service
 Implementation-Version: 1.0.0
-Built-By: Matheus Mulder
+Built-By: Matheus Johan Mulder
 Implementation-Vendor-Id: net.learnbook
-Build-Jdk: 1.8.0_144
+Build-Jdk: 1.8.0_181
 Implementation-URL: http://projects.spring.io/spring-boot/net.learnboo
  k.service/
 Created-By: Maven Integration for Eclipse

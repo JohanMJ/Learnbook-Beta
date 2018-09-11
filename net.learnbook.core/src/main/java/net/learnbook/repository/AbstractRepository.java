@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -76,5 +77,26 @@ public class AbstractRepository<E> implements Repository<E> {
 		}
 		return true;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public E findByLogin(String className, String sLogin) {
+		try {
+			sLogin = sLogin + ".com";
+			String selectQuery = "FROM " + className + " WHERE sLogUser = :sLogin";
+			Query query = this.entityManager.createQuery(selectQuery);
+			query.setParameter("sLogin", sLogin);
+				
+			return (E) query.getSingleResult();
+
+		} catch (IllegalArgumentException error) {
+			error.printStackTrace();
+
+		} catch (PersistenceException error) {
+			error.printStackTrace();
+		}
+		return null;
+	}
+
 
 }

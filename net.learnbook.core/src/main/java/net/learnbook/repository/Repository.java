@@ -12,4 +12,6 @@ public interface Repository<E> {
 	public List<E> list(String className);
 	
 	public E findById(Integer id);
+	
+	public E findByLogin(String className, String sLogin);
 }

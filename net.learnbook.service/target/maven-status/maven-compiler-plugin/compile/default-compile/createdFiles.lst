@@ -1,5 +1,9 @@
+net\learnbook\security\AccountCredentials.class
 net\learnbook\security\SecurityConfiguration.class
+net\learnbook\security\JWTLoginFilter.class
+net\learnbook\security\TokenAuthenticationService.class
 net\learnbook\webservice\UserWebService.class
+net\learnbook\security\JWTAuthenticationFilter.class
 net\learnbook\MyApplication.class
 net\learnbook\security\WebMvcConfig.class
 net\learnbook\webservice\CourseWebService.class

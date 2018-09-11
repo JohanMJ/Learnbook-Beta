@@ -67,10 +67,17 @@ public class UserWebService {
 	            
 	}
 	
-	@GetMapping(value="/{iCodUser}")
-	public User getUser(@PathVariable int iCodUser) {
+//	@GetMapping(value="/login")
+//	public User getUser() {
+//	
+//		return userService.findById(2);
+//	            
+//	}
 	
-		return userService.findById(iCodUser);
+	@GetMapping(value="/login/{sLogin}")
+	public User getUserDinamic(@PathVariable String sLogin) {
+//	System.out.println(sLogin);
+		return userService.findByLogin(sLogin);
 	            
 	}
 		
