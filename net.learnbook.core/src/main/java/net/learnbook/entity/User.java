@@ -68,9 +68,9 @@ public class User {
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodRol"))
 	private Set<Role> roles;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+/*	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_course", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodCou"))
-	private Set<Course> courses;
+	private Set<Course> courses;*/
 
 	public User() {
 		super();

@@ -3,12 +3,17 @@ package net.learnbook.entity;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -41,6 +46,22 @@ public class Course {
 	@Column
 	@NotNull(message = "O campo preço não pode ficar vazio.")
 	private float fPriCou;
+	
+	@Column
+	@NotNull(message = "O campo hora não pode ficar vazio.")
+	private Integer iHorCou;
+	
+	@Column
+	@NotNull(message = "O campo dificuldade não pode ficar vazio.")
+	private String sDifCou;
+	
+	@Column
+	@NotNull(message = "O campo status não pode ficar vazio.")
+	private String sStaCou;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "course_category_fk", nullable = false)
+	private Category category;
 
 	@OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
 	private Set<Activity> activiy;
@@ -50,6 +71,10 @@ public class Course {
 
 	@OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
 	private Set<Slip> slip;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "course_user", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodCou"))
+	private Set<User> users;
 
 	public Course() {
 		super();
