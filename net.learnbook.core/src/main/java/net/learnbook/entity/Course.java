@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "course")
+@Table(name = "COURSE")
 public class Course {
 
 	@Id
@@ -79,7 +79,7 @@ public class Course {
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JsonInclude(Include.NON_NULL)
 	@JsonProperty("users")
-	@JoinTable(name = "course_user", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodCou"))
+	@JoinTable(name = "COURSE_USER", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodCou"))
 	private Set<User> users;
 
 	public Course() {

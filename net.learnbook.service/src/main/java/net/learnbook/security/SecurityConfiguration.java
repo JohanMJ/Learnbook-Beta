@@ -81,6 +81,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/dev/course/insert").permitAll()
 			.antMatchers("/dev/user/listAll").permitAll()
 			.antMatchers("/dev/user/login/{sLogin}").permitAll()
+			.antMatchers("/dev/course/list/{iCodUser}").permitAll()
 			.antMatchers(HttpMethod.POST, "/login").permitAll()
 			.anyRequest().authenticated()
 			.and()

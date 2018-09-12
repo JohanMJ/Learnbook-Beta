@@ -9,6 +9,8 @@ import javax.persistence.Query;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import net.learnbook.entity.Course;
+
 @Transactional(noRollbackFor = Exception.class)
 public class AbstractRepository<E> implements Repository<E> {
 
@@ -97,6 +99,26 @@ public class AbstractRepository<E> implements Repository<E> {
 		}
 		return null;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<E> listCourseByUser(String className, Integer iCodUser) {
+		try {
+			String selectQuery = "FROM " + className + "  cu INNER JOIN cu.users as u WHERE u.iCodUser = :iCodUser";
+			Query query = this.entityManager.createQuery(selectQuery);
+			query.setParameter("iCodUser", iCodUser);
+				
+			System.out.println(selectQuery);
+			return (List<E>) query.getResultList();
+
+		} catch (IllegalArgumentException error) {
+			error.printStackTrace();
+
+		} catch (PersistenceException error) {
+			error.printStackTrace();
+		}
+		return null;
+	}
+	
 
 
 }
