@@ -78,6 +78,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable().authorizeRequests()
 			.antMatchers("/dev/user/insert").permitAll()
+			.antMatchers("/dev/course/insert").permitAll()
 			.antMatchers("/dev/user/listAll").permitAll()
 			.antMatchers("/dev/user/login/{sLogin}").permitAll()
 			.antMatchers(HttpMethod.POST, "/login").permitAll()

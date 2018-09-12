@@ -18,6 +18,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "course")
 public class Course {
@@ -46,19 +50,19 @@ public class Course {
 	@Column
 	@NotNull(message = "O campo preço não pode ficar vazio.")
 	private float fPriCou;
-	
+
 	@Column
 	@NotNull(message = "O campo hora não pode ficar vazio.")
-	private Integer iHorCou;
-	
+	private float fHorCou;
+
 	@Column
 	@NotNull(message = "O campo dificuldade não pode ficar vazio.")
 	private String sDifCou;
-	
+
 	@Column
 	@NotNull(message = "O campo status não pode ficar vazio.")
 	private String sStaCou;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "course_category_fk", nullable = false)
 	private Category category;
@@ -71,17 +75,20 @@ public class Course {
 
 	@OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
 	private Set<Slip> slip;
-	
-	@ManyToMany(cascade = CascadeType.ALL)
+
+	@ManyToMany(cascade = CascadeType.MERGE)
+	@JsonInclude(Include.NON_NULL)
+	@JsonProperty("users")
 	@JoinTable(name = "course_user", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodCou"))
 	private Set<User> users;
 
 	public Course() {
-		super();
+
 	}
 
 	public Course(Integer iCodCou, String sNamCou, String sDesCou, Date dDatCou, Date dExpTimCou, float fPriCou,
-			Set<Activity> activiy, Set<Certification> certification, Set<Slip> slip) {
+			float fHorCou, String sDifCou, String sStaCou, Category category, Set<Activity> activiy,
+			Set<Certification> certification, Set<Slip> slip, Set<User> users) {
 		super();
 		this.iCodCou = iCodCou;
 		this.sNamCou = sNamCou;
@@ -89,9 +96,14 @@ public class Course {
 		this.dDatCou = dDatCou;
 		this.dExpTimCou = dExpTimCou;
 		this.fPriCou = fPriCou;
+		this.fHorCou = fHorCou;
+		this.sDifCou = sDifCou;
+		this.sStaCou = sStaCou;
+		this.category = category;
 		this.activiy = activiy;
 		this.certification = certification;
 		this.slip = slip;
+		this.users = users;
 	}
 
 	public Integer getiCodCou() {
@@ -142,6 +154,38 @@ public class Course {
 		this.fPriCou = fPriCou;
 	}
 
+	public float getfHorCou() {
+		return fHorCou;
+	}
+
+	public void setfHorCou(float fHorCou) {
+		this.fHorCou = fHorCou;
+	}
+
+	public String getsDifCou() {
+		return sDifCou;
+	}
+
+	public void setsDifCou(String sDifCou) {
+		this.sDifCou = sDifCou;
+	}
+
+	public String getsStaCou() {
+		return sStaCou;
+	}
+
+	public void setsStaCou(String sStaCou) {
+		this.sStaCou = sStaCou;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	public Set<Activity> getActiviy() {
 		return activiy;
 	}
@@ -166,11 +210,20 @@ public class Course {
 		this.slip = slip;
 	}
 
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
 	@Override
 	public String toString() {
 		return "Course [iCodCou=" + iCodCou + ", sNamCou=" + sNamCou + ", sDesCou=" + sDesCou + ", dDatCou=" + dDatCou
-				+ ", dExpTimCou=" + dExpTimCou + ", fPriCou=" + fPriCou + ", activiy=" + activiy + ", certification="
-				+ certification + ", slip=" + slip + "]";
+				+ ", dExpTimCou=" + dExpTimCou + ", fPriCou=" + fPriCou + ", fHorCou=" + fHorCou + ", sDifCou="
+				+ sDifCou + ", sStaCou=" + sStaCou + ", category=" + category + ", activiy=" + activiy
+				+ ", certification=" + certification + ", slip=" + slip + ", users=" + users + "]";
 	}
 
 }
