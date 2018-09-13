@@ -68,10 +68,11 @@ public class CourseWebService {
 
 	}
 	
-	@GetMapping(value="listAll")
+	@GetMapping(value="/listAll")
 	public List<Course> getAllCourse() {
 		List<Course> courses = new ArrayList<Course>();
 		courses = courseService.listAll();
+		System.out.println(courses);
 		return courses;
 	            
 	}

@@ -29,18 +29,18 @@ public class Group {
 	private float fPriGru;
 
 	@OneToMany(mappedBy = "group")
-	private Set<Course> course;
+	private Set<Course> courses;
 
 	public Group() {
 		super();
 	}
 
-	public Group(Integer iCodGru, String sNamGru, float fPriGru, Set<Course> course) {
+	public Group(Integer iCodGru, String sNamGru, float fPriGru, Set<Course> courses) {
 		super();
 		this.iCodGru = iCodGru;
 		this.sNamGru = sNamGru;
 		this.fPriGru = fPriGru;
-		this.course = course;
+		this.courses = courses;
 	}
 
 	public Integer getiCodGru() {
@@ -67,17 +67,17 @@ public class Group {
 		this.fPriGru = fPriGru;
 	}
 
-	public Set<Course> getCourse() {
-		return course;
+	public Set<Course> getCourses() {
+		return courses;
 	}
 
-	public void setCourse(Set<Course> course) {
-		this.course = course;
+	public void setCourses(Set<Course> courses) {
+		this.courses = courses;
 	}
 
 	@Override
 	public String toString() {
-		return "Group [iCodGru=" + iCodGru + ", sNamGru=" + sNamGru + ", fPriGru=" + fPriGru + ", course=" + course
+		return "Group [iCodGru=" + iCodGru + ", sNamGru=" + sNamGru + ", fPriGru=" + fPriGru + ", courses=" + courses
 				+ "]";
 	}
 
