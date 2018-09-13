@@ -1,4 +1,4 @@
-/*package net.learnbook.service;
+package net.learnbook.service;
 
 import java.util.List;
 
@@ -13,4 +13,3 @@ public interface GroupService {
 	
 	public GroupRepository getRepository();
 }
-*/

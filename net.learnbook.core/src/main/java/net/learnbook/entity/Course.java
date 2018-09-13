@@ -18,10 +18,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 @Entity
 @Table(name = "course")
 public class Course {
@@ -67,6 +63,10 @@ public class Course {
 	@JoinColumn(name = "course_category_fk", nullable = false)
 	private Category category;
 
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "course_group_fk")
+	private Group group;
+
 	@OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
 	private Set<Activity> activiy;
 
@@ -77,7 +77,7 @@ public class Course {
 	private Set<Slip> slip;
 
 	@ManyToMany(cascade = CascadeType.MERGE)
-	@JoinTable(name = "COURSE_USER", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodCou"))
+	@JoinTable(name = "course_user", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodCou"))
 	private Set<User> users;
 
 	public Course() {
@@ -85,7 +85,7 @@ public class Course {
 	}
 
 	public Course(Integer iCodCou, String sNamCou, String sDesCou, Date dDatCou, Date dExpTimCou, float fPriCou,
-			float fHorCou, String sDifCou, String sStaCou, Category category, Set<Activity> activiy,
+			float fHorCou, String sDifCou, String sStaCou, Category category, Group group, Set<Activity> activiy,
 			Set<Certification> certification, Set<Slip> slip, Set<User> users) {
 		super();
 		this.iCodCou = iCodCou;
@@ -98,6 +98,7 @@ public class Course {
 		this.sDifCou = sDifCou;
 		this.sStaCou = sStaCou;
 		this.category = category;
+		this.group = group;
 		this.activiy = activiy;
 		this.certification = certification;
 		this.slip = slip;
@@ -184,6 +185,14 @@ public class Course {
 		this.category = category;
 	}
 
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
+	}
+
 	public Set<Activity> getActiviy() {
 		return activiy;
 	}
@@ -220,9 +229,8 @@ public class Course {
 	public String toString() {
 		return "Course [iCodCou=" + iCodCou + ", sNamCou=" + sNamCou + ", sDesCou=" + sDesCou + ", dDatCou=" + dDatCou
 				+ ", dExpTimCou=" + dExpTimCou + ", fPriCou=" + fPriCou + ", fHorCou=" + fHorCou + ", sDifCou="
-				+ sDifCou + ", sStaCou=" + sStaCou + ", category=" + category + ", activiy=" + activiy
-				+ ", certification=" + certification + ", slip=" + slip + ", users=" + users + "]";
+				+ sDifCou + ", sStaCou=" + sStaCou + ", category=" + category + ", group=" + group + ", activiy="
+				+ activiy + ", certification=" + certification + ", slip=" + slip + ", users=" + users + "]";
 	}
-
 
 }

@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class Category {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Integer iCodCat;
 

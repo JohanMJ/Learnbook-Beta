@@ -1,4 +1,4 @@
-/*package net.learnbook.service;
+package net.learnbook.service;
 
 import java.util.List;
 
@@ -35,4 +35,3 @@ public class GroupServiceImp implements GroupService {
 	
 
 }
-*/

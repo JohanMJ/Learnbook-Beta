@@ -42,7 +42,7 @@ public class UserServiceImp implements UserService {
 			user.setdBirUser(new Date(now));
 		}
 
-		Role userRole = roleRepository.findById(0);
+		Role userRole = roleRepository.findById(1);
 		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
 		userRepository.save(user);
 
