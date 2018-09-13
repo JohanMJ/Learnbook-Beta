@@ -1,12 +1,9 @@
 package net.learnbook.webservice;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,12 +30,13 @@ public class ActivityWebService {
 
 	}
 
-	@GetMapping("list")
-	public ResponseEntity<Activity> getActivity() {
-
-		Activity activity = new Activity(1, "Atividade 01", "Teste - Atividade 01", new Date(), new Date());
-		return new ResponseEntity<Activity>(activity, HttpStatus.OK);
-
-	}
-
+	/*
+	 * @GetMapping("list") public ResponseEntity<Activity> getActivity() {
+	 * 
+	 * Activity activity = new Activity(1, "Atividade 01", "Teste - Atividade 01",
+	 * new Date(), new Date()); return new ResponseEntity<Activity>(activity,
+	 * HttpStatus.OK);
+	 * 
+	 * }
+	 */
 }

@@ -20,7 +20,7 @@ public class CourseServiceImp implements CourseService {
 	public void insert(Course course) {
 		courseRepository.save(course);
 	}
-	
+
 	@Override
 	public Course findById(Integer iCodCou) {
 		return courseRepository.findById(iCodCou);
@@ -32,8 +32,13 @@ public class CourseServiceImp implements CourseService {
 	}
 
 	@Override
-	public List<Course> listCourseByUser(Integer iCodUser) {	
-		return courseRepository.listCourseByUser("Course",iCodUser);
+	public List<Course> listCourseByUser(Integer iCodUser) {
+		return courseRepository.listCourseByUser("Course", iCodUser);
+	}
+
+	@Override
+	public List<Course> listAll() {
+		return courseRepository.list("Course");
 	}
 
 }

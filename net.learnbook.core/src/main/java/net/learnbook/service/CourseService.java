@@ -10,6 +10,8 @@ public interface CourseService {
 	public void insert(Course course);
 
 	public Course findById(Integer iCodCou);
+	
+	public List<Course> listAll();
 
 	public List<Course> listCourseByUser(Integer iCodUser);
 
