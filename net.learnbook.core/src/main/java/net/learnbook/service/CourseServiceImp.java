@@ -20,6 +20,11 @@ public class CourseServiceImp implements CourseService {
 	public void insert(Course course) {
 		courseRepository.save(course);
 	}
+	
+	@Override
+	public Course findById(Integer iCodCou) {
+		return courseRepository.findById(iCodCou);
+	}
 
 	@Override
 	public CourseRepository getRepository() {

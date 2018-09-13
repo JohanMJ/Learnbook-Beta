@@ -44,20 +44,27 @@ public class CourseWebService {
 
 	}
 
-//	@GetMapping("list")
-//	public ResponseEntity<Course> getCourse() {
-//
-////		Course course = new Course(1, "Curso 01", "Teste - Curso 01", new Date(), new Date(), 99.99f, null, null, null);
-//
-//		return new ResponseEntity<Course>(course, HttpStatus.OK);
-//
-//	}
+	@GetMapping(value = "/list/single/{iCodCou}")
+	public Course getCourse(@PathVariable Integer iCodCou) {
+		try {
+
+			return courseService.findById(iCodCou);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	@GetMapping(value = "/list/{iCodUser}")
 	public List<Course> getCourseByUser(@PathVariable Integer iCodUser) {
-		List<Course> courses = new ArrayList<Course>();
-		courses = courseService.listCourseByUser(iCodUser);
-		return courses;
+		try {
+			List<Course> courses = new ArrayList<Course>();
+			courses = courseService.listCourseByUser(iCodUser);
+			return courses;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 
 	}
 
