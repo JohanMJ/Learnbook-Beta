@@ -80,6 +80,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/dev/user/insert").permitAll()
 			.antMatchers("/dev/course/insert").permitAll()
 			.antMatchers("/dev/group/insert").permitAll()
+			.antMatchers("/dev/activity/insert").permitAll()
 			.antMatchers("/dev/user/listAll").permitAll()
 			.antMatchers("/dev/course/listAll").permitAll()
 			.antMatchers("/dev/group/listAll").permitAll()
