@@ -9,6 +9,7 @@ import javax.persistence.Query;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import net.learnbook.entity.Activity;
 import net.learnbook.entity.Course;
 
 @Transactional(noRollbackFor = Exception.class)
@@ -103,7 +104,7 @@ public class AbstractRepository<E> implements Repository<E> {
 	@SuppressWarnings("unchecked")
 	public List<E> listCourseByUser(String className, Integer iCodUser) {
 		try {
-			String selectQuery = "FROM " + className + "  cu INNER JOIN cu.users as u WHERE u.iCodUser = :iCodUser";
+			String selectQuery = "SELECT cu FROM " + className + "  cu INNER JOIN cu.users as u WHERE u.iCodUser = :iCodUser";
 			Query query = this.entityManager.createQuery(selectQuery);
 			query.setParameter("iCodUser", iCodUser);
 				
@@ -118,6 +119,7 @@ public class AbstractRepository<E> implements Repository<E> {
 		}
 		return null;
 	}
+	
 	
 
 

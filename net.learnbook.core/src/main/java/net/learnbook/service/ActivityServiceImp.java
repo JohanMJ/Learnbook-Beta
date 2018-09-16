@@ -1,5 +1,7 @@
 package net.learnbook.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -18,10 +20,24 @@ public class ActivityServiceImp implements ActivityService {
 	public void insert(Activity activity) {
 		activityRepository.save(activity);
 	}
+	
+	@Override
+	public void update(Activity activity) {
+		activityRepository.update(activity);
+		
+	}
 
 	@Override
 	public ActivityRepository getRepository() {
 		return activityRepository;
 	}
+
+	@Override
+	public List<Activity> listActivitiesFromCourse(Integer iCodCou) {
+		
+		return activityRepository.listActivitiesFromCourse("Activity", iCodCou);
+	}
+
+
 
 }

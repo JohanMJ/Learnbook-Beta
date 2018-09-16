@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import net.learnbook.entity.Activity;
 import net.learnbook.entity.Course;
+import net.learnbook.service.ActivityService;
 import net.learnbook.service.CourseService;
 
 @RestController
@@ -28,6 +30,9 @@ public class CourseWebService {
 
 	@Autowired
 	private CourseService courseService;
+	
+	@Autowired
+	private ActivityService activityService;
 
 	@PostMapping("insert")
 	public ResponseEntity<Course> insertCourse(@RequestBody Course course) {
@@ -72,9 +77,26 @@ public class CourseWebService {
 	public List<Course> getAllCourse() {
 		List<Course> courses = new ArrayList<Course>();
 		courses = courseService.listAll();
-		System.out.println(courses);
 		return courses;
 	            
 	}
+	
+	@GetMapping(value="/progress/{iCodCou}")
+	public Integer getProgress(@PathVariable Integer iCodCou) {
+		Integer progress = 0;
+		List<Activity> activities = new ArrayList<Activity>();
+		activities = activityService.listActivitiesFromCourse(iCodCou);
+		Integer numAct = activities.size();
+		Integer syTabix = 1;
+		for(Activity act: activities) {
+			if(act.getsConAct() == "X") {
+				progress = progress + (syTabix/numAct);
+				syTabix++;
+			}
+		}
+		return progress;
+	            
+	}
+		
 
 }

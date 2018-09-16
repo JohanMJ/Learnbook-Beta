@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import net.learnbook.entity.Activity;
+import net.learnbook.entity.Course;
 import net.learnbook.entity.User;
 import net.learnbook.service.UserService;
 
@@ -80,6 +82,8 @@ public class UserWebService {
 		return userService.findByLogin(sLogin);
 	            
 	}
+	
+
 		
 	
 
