@@ -41,4 +41,9 @@ public class CourseServiceImp implements CourseService {
 		return courseRepository.list("Course");
 	}
 
+	@Override
+	public void update(Course course) {
+		courseRepository.update(course);
+	}
+
 }

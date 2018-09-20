@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ public class CourseWebService {
 
 	@Autowired
 	private CourseService courseService;
-	
+
 	@Autowired
 	private ActivityService activityService;
 
@@ -72,31 +73,79 @@ public class CourseWebService {
 		}
 
 	}
-	
-	@GetMapping(value="/listAll")
+
+	@GetMapping(value = "/listAll")
 	public List<Course> getAllCourse() {
 		List<Course> courses = new ArrayList<Course>();
 		courses = courseService.listAll();
 		return courses;
-	            
+
+	}
+
+	@GetMapping(value = "/progress/{iCodCou}")
+	public double getProgress(@PathVariable Integer iCodCou) {
+		double progress = 0;
+		try {
+
+			System.out.println(progress);
+			List<Activity> activities = new ArrayList<Activity>();
+			activities = activityService.listActivitiesFromCourse(iCodCou);
+			Integer numAct = activities.size();
+			Integer syTabix = 1;
+			for (Activity act : activities) {
+				if (act.getsConAct() != null) {
+					if (act.getsConAct().equalsIgnoreCase("X")) {
+						System.out.println(progress + " " + syTabix + " " + numAct);
+						progress = (double) syTabix / numAct;
+//					progress = 50;
+						progress = (double) progress * 100;
+						syTabix++;
+						System.out.println(syTabix);
+					}
+				}
+
+			}
+			System.out.println(progress);
+			return (double) progress;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0f;
+		}
+
+	}
+
+	@PutMapping("update")
+	public void updateCourse(@RequestBody Course course) {
+		try {
+			courseService.update(course);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@PutMapping("remove")
+	public void removeCourse(@RequestBody Course course) {
+		try {
+			course.setsStaCou("R");
+			courseService.update(course);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
-	@GetMapping(value="/progress/{iCodCou}")
-	public Integer getProgress(@PathVariable Integer iCodCou) {
-		Integer progress = 0;
-		List<Activity> activities = new ArrayList<Activity>();
-		activities = activityService.listActivitiesFromCourse(iCodCou);
-		Integer numAct = activities.size();
-		Integer syTabix = 1;
-		for(Activity act: activities) {
-			if(act.getsConAct() == "X") {
-				progress = progress + (syTabix/numAct);
-				syTabix++;
+	@GetMapping(value = "/getPoints/From/{iCodCou}")
+	public float getPointsFromCourse(@PathVariable Integer iCodCou) {
+		float points = 0f;
+		Course c = new Course();
+		c = courseService.findById(iCodCou);
+
+			if(c.getfHorCou() != 0 && c.getfPriCou() != 0) {
+				points = ( c.getfHorCou() * c.getfPriCou() ) / 200f;
+				return points;
 			}
-		}
-		return progress;
-	            
-	}
 		
+		return points;
+
+	}
 
 }

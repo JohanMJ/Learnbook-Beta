@@ -8,6 +8,8 @@ import net.learnbook.repository.CourseRepository;
 public interface CourseService {
 
 	public void insert(Course course);
+	
+	public void update(Course couse);
 
 	public Course findById(Integer iCodCou);
 	

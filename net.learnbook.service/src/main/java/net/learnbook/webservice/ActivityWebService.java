@@ -54,7 +54,7 @@ public class ActivityWebService {
 	@PutMapping("finish")
 	public void finishActivity(@RequestBody Activity activity) {
 		try {
-			activity.setsConAct("x");
+			activity.setsConAct("X");
 			activityService.update(activity);
 		}catch(Exception e) {
 			e.printStackTrace();

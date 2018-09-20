@@ -1,12 +1,9 @@
 package net.learnbook.security;
 
-import java.util.Arrays;
-
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,9 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @Configuration
 @EnableWebSecurity
@@ -80,7 +74,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/dev/user/insert").permitAll()
 			.antMatchers("/dev/course/insert").permitAll()
 			.antMatchers("/dev/group/insert").permitAll()
+			.antMatchers("/dev/course/update").permitAll()
+			.antMatchers("/dev/course/remove").permitAll()
+			.antMatchers("/dev/course/getPoints/From/{iCodCou}").permitAll()
 			.antMatchers("/dev/activity/insert").permitAll()
+			.antMatchers("/dev/activity/finish").permitAll()
 			.antMatchers("/dev/activity/list/{iCodCou}").permitAll()
 			.antMatchers("/dev/user/listAll").permitAll()
 			.antMatchers("/dev/course/listAll").permitAll()
