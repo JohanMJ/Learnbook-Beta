@@ -44,6 +44,7 @@ public class Course {
 	@Column
 	@NotNull(message = "O campo data de expiração não pode ficar vazio.")
 	private Date dExpTimCou;
+	
 
 	@Column
 	@NotNull(message = "O campo preço não pode ficar vazio.")

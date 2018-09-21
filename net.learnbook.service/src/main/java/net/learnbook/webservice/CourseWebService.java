@@ -38,8 +38,8 @@ public class CourseWebService {
 	@PostMapping("insert")
 	public ResponseEntity<Course> insertCourse(@RequestBody Course course) {
 		try {
-			course.setdDatCou(new Date());
-			course.setdExpTimCou(new Date());
+//			course.setdDatCou(new Date());
+//			course.setdExpTimCou(new Date());
 			course.setsStaCou("Inicial");
 			courseService.insert(course);
 			return new ResponseEntity<Course>(course, HttpStatus.OK);
