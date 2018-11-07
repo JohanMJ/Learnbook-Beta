@@ -3,6 +3,9 @@ package net.learnbook.webservice;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.PersistenceException;
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import net.learnbook.entity.Activity;
 import net.learnbook.entity.Course;
+import net.learnbook.entity.Group;
 import net.learnbook.entity.User;
 import net.learnbook.service.UserService;
 
@@ -38,9 +42,20 @@ public class UserWebService {
 		}catch(Exception e){
 			e.printStackTrace();
 			return null;
-		}
-                
+		}   
 	}
+	
+	@PostMapping("/update")
+	public ResponseEntity<User> updateUser(@RequestBody User user) {
+		try{
+			userService.update(user);  
+            return new ResponseEntity<User>(user, HttpStatus.OK);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}   
+	}
+	
 /*	@GetMapping("list")
 	public ResponseEntity<User> getUser() {
 		
@@ -76,17 +91,19 @@ public class UserWebService {
 //	            
 //	}
 	
-	@GetMapping(value="/login/{sLogin}")
-	public User getUserDinamic(@PathVariable String sLogin) {
-//	System.out.println(sLogin);
-		return userService.findByLogin(sLogin);
-	            
+	@GetMapping(value="get/{iCodUser}")
+	public User getUserById(@PathVariable Integer iCodUser) {
+		return userService.findById(iCodUser);
 	}
 	
-
-		
+	@GetMapping(value="/login/{sLogin}")
+	public User getUserDinamic(@PathVariable String sLogin) {
+		return userService.findByLogin(sLogin);
+	}
 	
-
+	@GetMapping(value="/listAll/{iCodUser}")
+	public List<User> listAllByCompany(@PathVariable Integer iCodUser) {
+		return userService.listAllByCompany(iCodUser);
+	}
 		
-
 }

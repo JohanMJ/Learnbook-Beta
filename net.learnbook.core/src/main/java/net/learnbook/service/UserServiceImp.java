@@ -6,11 +6,15 @@ import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
 
+import javax.persistence.PersistenceException;
+import javax.persistence.Query;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import net.learnbook.entity.Group;
 import net.learnbook.entity.Role;
 import net.learnbook.entity.User;
 import net.learnbook.repository.RoleRepository;
@@ -45,7 +49,11 @@ public class UserServiceImp implements UserService {
 		Role userRole = roleRepository.findById(1);
 		user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
 		userRepository.save(user);
-
+	}
+	
+	@Override
+	public void update(User user) {
+		userRepository.update(user);
 	}
 
 	@Override
@@ -65,7 +73,6 @@ public class UserServiceImp implements UserService {
 
 	@Override
 	public User findById(Integer iCodUser) {
-
 		return userRepository.findById(iCodUser);
 	}
 
@@ -79,6 +86,11 @@ public class UserServiceImp implements UserService {
 		// TODO Auto-generated method stub
 		//System.out.println(sLogin);
 		return userRepository.findByLogin("User", sLogin);
+	}
+	
+	@Override
+	public List<User> listAllByCompany(Integer iCodUser) {
+		return userRepository.listAllByCompany(iCodUser);
 	}
 
 }

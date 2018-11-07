@@ -32,6 +32,14 @@ public class GroupServiceImp implements GroupService {
 		return groupRepository;
 	}
 	
+	@Override
+	public List<Group> listAllByUser(Integer iCodUser) {
+		return groupRepository.listAllByUser(iCodUser);
+	}
 	
+	@Override
+	public Group findById(Integer iCodGru) {
+		return groupRepository.findById(iCodGru);
+	}
 
 }

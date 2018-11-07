@@ -232,7 +232,7 @@ public class Course {
 	public String toString() {
 		return "Course [iCodCou=" + iCodCou + ", sNamCou=" + sNamCou + ", sDesCou=" + sDesCou + ", dDatCou=" + dDatCou
 				+ ", dExpTimCou=" + dExpTimCou + ", fPriCou=" + fPriCou + ", fHorCou=" + fHorCou + ", sDifCou="
-				+ sDifCou + ", sStaCou=" + sStaCou + ", category=" + category + ", group=" + group + ", activiy="
+				+ sDifCou + ", sStaCou=" + sStaCou + ", category=" + category + ", activiy="
 				+ activiy + ", certification=" + certification + ", slip=" + slip + ", users=" + users + "]";
 	}
 

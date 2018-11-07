@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,10 +34,6 @@ public class GroupWebService {
 		try {
 			if(group != null) {
 			float total = 0;
-			for(Course c: group.getCourses()) {
-				total = total + c.getfPriCou();
-			}
-			total = total * (0.80f);
 			group.setfPriGru(total);
 			groupService.insert(group);
 			return new ResponseEntity<Group>(group, HttpStatus.OK);
@@ -75,4 +72,19 @@ public class GroupWebService {
 
 	}
 
+	@GetMapping(value = "listAll/{iCodUser}")
+	public List<Group> listAllByUser(@PathVariable Integer iCodUser) {
+		List<Group> groups = new ArrayList<Group>();
+		groups = groupService.listAllByUser(iCodUser);
+		return groups;
+	}
+	
+	@GetMapping(value = "get/{iCodGru}")
+	public Group findById(@PathVariable Integer iCodGru) {
+		Group group = new Group();
+		group = groupService.findById(iCodGru);
+		System.out.println("grupo " + group);
+		return group;
+	}
+	
 }

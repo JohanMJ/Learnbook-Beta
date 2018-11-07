@@ -119,8 +119,5 @@ public class AbstractRepository<E> implements Repository<E> {
 		}
 		return null;
 	}
-	
-	
-
 
 }

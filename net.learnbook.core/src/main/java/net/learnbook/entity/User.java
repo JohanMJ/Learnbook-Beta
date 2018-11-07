@@ -35,6 +35,10 @@ public class User {
 	@Column(nullable = false, length = 55)
 	@NotNull(message = "O campo nome não pode ficar vazio")
 	private String sNamUser;
+	
+	@Column(nullable = false, length = 55)
+	@NotNull(message = "O campo tipo não pode ficar vazio")
+	private String type;
 
 	@Column(unique = true)
 	@NotNull(message = "O campo e-mail não pode ficar vazio")
@@ -60,6 +64,12 @@ public class User {
 	
 	@OneToMany(mappedBy="user", fetch = FetchType.EAGER)
 	private Set<Certification> certification;
+	
+	@Column
+	private Integer companyId;
+	
+	@OneToMany(mappedBy="user", fetch = FetchType.EAGER)
+	private Set<Group> group;
 	
 	@OneToMany(mappedBy="user", fetch = FetchType.EAGER)
 	private Set<Slip> slip;
@@ -151,6 +161,22 @@ public class User {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Integer getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
 	@Override

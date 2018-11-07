@@ -18,4 +18,6 @@ public interface CourseService {
 	public List<Course> listCourseByUser(Integer iCodUser);
 
 	public CourseRepository getRepository();
+	
+	public List<Course> listAllByGroup(Integer iCodGru);
 }

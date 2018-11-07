@@ -4,9 +4,12 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -27,20 +30,23 @@ public class Group {
 	@Column
 	@NotNull(message = "O campo nome não pode estar vazio.")
 	private float fPriGru;
-
-	@OneToMany(mappedBy = "group")
-	private Set<Course> courses;
+	
+	@Column
+	private Float dDesGru;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "group_user_fk", nullable = true)
+	private User user;
 
 	public Group() {
 		super();
 	}
 
-	public Group(Integer iCodGru, String sNamGru, float fPriGru, Set<Course> courses) {
+	public Group(Integer iCodGru, String sNamGru, float fPriGru) {
 		super();
 		this.iCodGru = iCodGru;
 		this.sNamGru = sNamGru;
 		this.fPriGru = fPriGru;
-		this.courses = courses;
 	}
 
 	public Integer getiCodGru() {
@@ -67,18 +73,25 @@ public class Group {
 		this.fPriGru = fPriGru;
 	}
 
-	public Set<Course> getCourses() {
-		return courses;
+	public Float getdDesGru() {
+		return dDesGru;
 	}
 
-	public void setCourses(Set<Course> courses) {
-		this.courses = courses;
+	public void setdDesGru(Float dDesGru) {
+		this.dDesGru = dDesGru;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
-		return "Group [iCodGru=" + iCodGru + ", sNamGru=" + sNamGru + ", fPriGru=" + fPriGru + ", courses=" + courses
-				+ "]";
+		return "Group [iCodGru=" + iCodGru + ", sNamGru=" + sNamGru + ", fPriGru=" + fPriGru + "]";
 	}
 
 }

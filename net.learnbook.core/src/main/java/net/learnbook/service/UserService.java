@@ -11,6 +11,8 @@ public interface UserService {
 
 	public void insert(User user);
 	
+	public void update(User user);
+	
 	public List<User> listAll();
 	
 	public User findById(Integer iCodUser);
@@ -18,4 +20,6 @@ public interface UserService {
 	public User findByLogin(String sLogin);
 	
 	public UserRepository getRepository();
+	
+	public List<User> listAllByCompany(Integer iCodUser);
 }

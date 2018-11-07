@@ -45,5 +45,10 @@ public class CourseServiceImp implements CourseService {
 	public void update(Course course) {
 		courseRepository.update(course);
 	}
+	
+	@Override
+	public List<Course> listAllByGroup(Integer iCodGru) {
+		return courseRepository.listAllByGroup(iCodGru);
+	}
 
 }
