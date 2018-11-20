@@ -1,13 +1,7 @@
 package net.learnbook.webservice;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,13 +18,6 @@ import javax.xml.transform.stream.StreamResult;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.InputStreamRequestEntity;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,13 +29,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import net.learnbook.entity.Activity;
 import net.learnbook.entity.Course;
 import net.learnbook.service.ActivityService;
@@ -213,7 +198,16 @@ public class CourseWebService {
 	@GetMapping(value = "/listAll")
 	public List<Course> getAllCourse() {
 		List<Course> courses = new ArrayList<Course>();
+		List<Course> auxCourses = new ArrayList<Course>();
 		courses = courseService.listAll();
+		for(Course c: courses) {
+			if(!c.getsStaCou().equalsIgnoreCase("R")) {
+				auxCourses.add(c);
+			}
+		}
+		
+		courses = auxCourses;
+		
 		return courses;
 
 	}
@@ -283,5 +277,16 @@ public class CourseWebService {
 		return points;
 
 	}
+	
+
+	@GetMapping(value = "/required")
+	public List<Course> highestCourseRequired() {
+		List<Course> courses = new ArrayList<Course>();
+		courses = courseService.highestCourseRequired();
+		return courses;
+
+	}
+
+	
 
 }

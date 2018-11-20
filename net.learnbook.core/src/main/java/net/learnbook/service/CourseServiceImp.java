@@ -51,4 +51,12 @@ public class CourseServiceImp implements CourseService {
 		return courseRepository.listAllByGroup(iCodGru);
 	}
 
+	@Override
+	public List<Course> highestCourseRequired() {
+		// TODO Auto-generated method stub
+		return courseRepository.highestCourseRequired();
+	}
+	
+	
+
 }

@@ -35,6 +35,7 @@ public class CourseRepository extends AbstractRepository<Course>{
 		}
 		return null;
 	}
+	
 
 /*	@SuppressWarnings("unchecked")
 	public List<Course> listCourseByUser(Integer iCodUser) {
@@ -56,5 +57,25 @@ public class CourseRepository extends AbstractRepository<Course>{
 		return null;
 	}
 	*/
+	
+	@SuppressWarnings("unchecked")
+	public List<Course> highestCourseRequired() {
+		try {
+			String selectQuery = "SELECT cu.iCodCou, cu.sNamCou, cu.sDesCou, COUNT(u.iCodUser) as countUser FROM Course as cu INNER JOIN cu.users as u GROUP BY cu.iCodCou ORDER BY countUser DESC" ;
+			Query query = this.entityManager.createQuery(selectQuery);
+				
+			System.out.println(selectQuery);
+			return (List<Course>) query.getResultList();
+
+		} catch (IllegalArgumentException error) {
+			error.printStackTrace();
+
+		} catch (PersistenceException error) {
+			error.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 
 }

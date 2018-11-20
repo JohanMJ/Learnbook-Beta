@@ -22,4 +22,7 @@ public interface UserService {
 	public UserRepository getRepository();
 	
 	public List<User> listAllByCompany(Integer iCodUser);
+	
+	public List<User> listAllCompanies();
+	
 }

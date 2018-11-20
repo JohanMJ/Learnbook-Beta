@@ -20,4 +20,6 @@ public interface CourseService {
 	public CourseRepository getRepository();
 	
 	public List<Course> listAllByGroup(Integer iCodGru);
+	
+	public List<Course> highestCourseRequired();
 }

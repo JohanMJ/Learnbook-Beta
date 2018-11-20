@@ -105,5 +105,10 @@ public class UserWebService {
 	public List<User> listAllByCompany(@PathVariable Integer iCodUser) {
 		return userService.listAllByCompany(iCodUser);
 	}
+	
+	@GetMapping(value="/listAllCompanies")
+	public List<User> listAllByCompany() {
+		return userService.listAllCompanies();
+	}
 		
 }
