@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?><checkout>  
-    <currency>BRL</currency>    <items>        <item>            <id>123</id>            <descriptionCurso</description>            <amount>11.0</amount>            <quantity>1</quantity>            <weight>1</weight>        </item>    </items>    <reference>REF1234</reference>    <sender>        <phone>            <areacode>11</areacode>            <number>56273440</number>        </phone>    </sender>    <shipping>        <type>1</type>    </shipping></checkout>  

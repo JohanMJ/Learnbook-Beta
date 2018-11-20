@@ -93,4 +93,12 @@ public class UserServiceImp implements UserService {
 		return userRepository.listAllByCompany(iCodUser);
 	}
 
+	@Override
+	public List<User> listAllCompanies() {
+		
+		return userRepository.listAllCompany();
+	}
+	
+	
+
 }

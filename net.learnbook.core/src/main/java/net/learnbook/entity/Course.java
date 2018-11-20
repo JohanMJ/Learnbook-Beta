@@ -80,7 +80,7 @@ public class Course {
 	private Set<Slip> slip;
 
 	@ManyToMany(cascade = CascadeType.MERGE)
-	@JoinTable(name = "course_user", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodCou"))
+	@JoinTable(name = "course_user", joinColumns = @JoinColumn(name = "iCodCou"), inverseJoinColumns = @JoinColumn(name = "iCodUser"))
 	private Set<User> users;
 
 	public Course() {
