@@ -102,6 +102,27 @@ public class AbstractRepository<E> implements Repository<E> {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<E> listCourseByUserGroup(String className, Integer iCodGru) {
+		try {
+			String selectQuery = "SELECT cu FROM " + className + "  "
+					+ "cu WHERE cu.group.iCodGru = :iCodGru";
+			
+			Query query = this.entityManager.createQuery(selectQuery);
+			query.setParameter("iCodGru", iCodGru);
+				
+			System.out.println(selectQuery);
+			return (List<E>) query.getResultList();
+
+		} catch (IllegalArgumentException error) {
+			error.printStackTrace();
+
+		} catch (PersistenceException error) {
+			error.printStackTrace();
+		}
+		return null;
+	}
+	
+	@SuppressWarnings("unchecked")
 	public List<E> listCourseByUser(String className, Integer iCodUser) {
 		try {
 			String selectQuery = "SELECT cu FROM " + className + "  cu INNER JOIN cu.users as u WHERE u.iCodUser = :iCodUser";

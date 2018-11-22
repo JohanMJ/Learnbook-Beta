@@ -74,6 +74,9 @@ public class User {
 	@OneToMany(mappedBy="user", fetch = FetchType.EAGER)
 	private Set<Slip> slip;
 
+	@Column
+	private Integer groupId;
+	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "iCodUser"), inverseJoinColumns = @JoinColumn(name = "iCodRol"))
 	private Set<Role> roles;
@@ -105,6 +108,15 @@ public class User {
 
 	public void setiCodUser(Integer iCodUser) {
 		this.iCodUser = iCodUser;
+	}
+	
+
+	public Integer getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(Integer groupId) {
+		this.groupId = groupId;
 	}
 
 	public String getsNamUser() {

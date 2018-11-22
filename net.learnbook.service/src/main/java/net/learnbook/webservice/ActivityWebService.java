@@ -75,4 +75,18 @@ public class ActivityWebService {
 	}
 	
 	
+	@GetMapping(value = "/listreview")
+	public List<Activity> getActivitiesFromReview() {
+		try {
+			List<Activity> activities = new ArrayList<Activity>();
+			activities = activityService.getActivitiesFromReview();
+			return activities;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+	}	
+	
+	
 }

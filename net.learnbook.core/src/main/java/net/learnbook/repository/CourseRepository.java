@@ -47,7 +47,6 @@ public class CourseRepository extends AbstractRepository<Course>{
 				
 			System.out.println(selectQuery);
 			return (List<Course>) query.getResultList();
-
 		} catch (IllegalArgumentException error) {
 			error.printStackTrace();
 

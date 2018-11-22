@@ -287,6 +287,17 @@ public class CourseWebService {
 
 	}
 
-	
+	@GetMapping(value = "/listgroup/{iCodGru}")
+	public List<Course> getCourseByUserGroup(@PathVariable Integer iCodGru) {
+		try {
+			List<Course> courses = new ArrayList<Course>();
+			courses = courseService.listCourseByUserGroup(iCodGru);
+			return courses;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

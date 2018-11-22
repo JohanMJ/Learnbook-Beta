@@ -57,6 +57,9 @@ public class CourseServiceImp implements CourseService {
 		return courseRepository.highestCourseRequired();
 	}
 	
-	
+	@Override
+	public List<Course> listCourseByUserGroup(Integer iCodGru) {
+		return courseRepository.listCourseByUserGroup("Course", iCodGru);
+	}
 
 }

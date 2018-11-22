@@ -26,6 +26,11 @@ public class ActivityServiceImp implements ActivityService {
 		activityRepository.update(activity);
 		
 	}
+	
+	@Override
+	public List<Activity> getActivitiesFromReview() {
+		return activityRepository.getActivitiesFromReview("Activity");
+	}
 
 	@Override
 	public ActivityRepository getRepository() {

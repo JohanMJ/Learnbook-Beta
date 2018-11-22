@@ -22,4 +22,6 @@ public interface CourseService {
 	public List<Course> listAllByGroup(Integer iCodGru);
 	
 	public List<Course> highestCourseRequired();
+	
+	public List<Course> listCourseByUserGroup(Integer iCodGru);
 }

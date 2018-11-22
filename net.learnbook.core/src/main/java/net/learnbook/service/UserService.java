@@ -25,4 +25,6 @@ public interface UserService {
 	
 	public List<User> listAllCompanies();
 	
+	public List<User> listAllByGroup(Integer iCodGru);
+	
 }
