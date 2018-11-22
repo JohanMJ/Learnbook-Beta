@@ -14,4 +14,6 @@ public interface ActivityService {
 	public List<Activity>  listActivitiesFromCourse(Integer iCodCou);
 	
 	public ActivityRepository getRepository();
+	
+	public List<Activity>  getActivitiesFromReview();
 }

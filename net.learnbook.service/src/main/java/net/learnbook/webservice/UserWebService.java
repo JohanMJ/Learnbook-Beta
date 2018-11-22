@@ -110,5 +110,10 @@ public class UserWebService {
 	public List<User> listAllByCompany() {
 		return userService.listAllCompanies();
 	}
+	
+	@GetMapping(value="/listAllGroup/{iCodGru}")
+	public List<User> listAllByGroup(@PathVariable Integer iCodGru) {
+		return userService.listAllByGroup(iCodGru);
+	}
 		
 }

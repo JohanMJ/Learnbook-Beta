@@ -40,6 +40,12 @@ public class Activity {
 	private String sStaAct;
 
 	@Column
+	private Integer idAluno;
+	
+	@Column
+	private Boolean corrigido;
+	
+	@Column
 	private String sConAct;
 
 	@ManyToOne
@@ -94,6 +100,24 @@ public class Activity {
 
 	public void setsCodVidAct(String sCodVidAct) {
 		this.sCodVidAct = sCodVidAct;
+	}
+	
+	
+
+	public Integer getIdAluno() {
+		return idAluno;
+	}
+
+	public void setIdAluno(Integer idAluno) {
+		this.idAluno = idAluno;
+	}
+
+	public Boolean getCorrigido() {
+		return corrigido;
+	}
+
+	public void setCorrigido(Boolean corrigido) {
+		this.corrigido = corrigido;
 	}
 
 	public String getsPatPDFAct() {

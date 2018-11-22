@@ -99,6 +99,9 @@ public class UserServiceImp implements UserService {
 		return userRepository.listAllCompany();
 	}
 	
-	
+	@Override
+	public List<User> listAllByGroup(Integer iCodGru) {
+		return userRepository.listAllByGroup(iCodGru);
+	}	
 
 }
